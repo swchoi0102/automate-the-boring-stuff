@@ -9,10 +9,14 @@ def printTable(tableData):
             line += data[row].rjust(col_widths[col]) + " "
         print(line)
 
-if __name__ == "__main__":
 
+def main():
     tableData = [['apples', 'oranges', 'cherries', 'banana'],
                  ['Alice', 'Bob', 'Carol', 'David'],
                  ['dogs', 'cats', 'moose', 'goose']]
 
     printTable(tableData)
+
+
+if __name__ == "__main__":
+    main()
