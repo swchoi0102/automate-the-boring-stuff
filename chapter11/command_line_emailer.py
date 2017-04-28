@@ -2,58 +2,63 @@ import sys
 from selenium import webdriver
 import time
 
-email = sys.argv[1]
 
-driver = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver')
-driver.get("https://mail.google.com/mail/")
+def main():
+    email = sys.argv[1]
 
-# Enter id
-idElem = driver.find_element_by_id('Email')
-idElem.send_keys('my_id')
-print("Successfully entered id")
+    driver = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver')
+    driver.get("https://mail.google.com/mail/")
 
-# Click next button
-nextElem = driver.find_element_by_id('next')
-nextElem.click()
-print("Successfully clicked next button")
+    # Enter id
+    idElem = driver.find_element_by_id('Email')
+    idElem.send_keys('my_id')
+    print("Successfully entered id")
 
-# wait for 3 seconds
-time.sleep(3)
+    # Click next button
+    nextElem = driver.find_element_by_id('next')
+    nextElem.click()
+    print("Successfully clicked next button")
 
-# Enter password
-passwordElem = driver.find_element_by_id('Passwd')
-passwordElem.send_keys('my_password')
-print("Successfully entered password")
+    # wait for 3 seconds
+    time.sleep(3)
 
-# Click sign in button
-signinElem = driver.find_element_by_id('signIn')
-signinElem.click()
-print("Successfully clicked sign-in button")
+    # Enter password
+    passwordElem = driver.find_element_by_id('Passwd')
+    passwordElem.send_keys('my_password')
+    print("Successfully entered password")
 
-# Click writing email button
-time.sleep(5)
-writeElem = driver.find_element_by_class_name("z0")
-writeElem.click()
-print("Successfully clicked writing button")
+    # Click sign in button
+    signinElem = driver.find_element_by_id('signIn')
+    signinElem.click()
+    print("Successfully clicked sign-in button")
 
-# Write Receiver
-time.sleep(3)
-receiverElem = driver.find_element_by_class_name("eV")
-receiverElem.send_keys(email)
-print("Successfully wrote receiver")
+    # Click writing email button
+    time.sleep(5)
+    writeElem = driver.find_element_by_class_name("z0")
+    writeElem.click()
+    print("Successfully clicked writing button")
 
-titleElem = driver.find_element_by_class_name("aoT")
-titleElem.send_keys("This is title")
-print("Successfully wrote title")
+    # Write Receiver
+    time.sleep(3)
+    receiverElem = driver.find_element_by_class_name("eV")
+    receiverElem.send_keys(email)
+    print("Successfully wrote receiver")
 
-# Write content
-content = driver.find_element_by_id(":md")
-content.send_keys("This is content")
-print("Successfully wrote content")
+    titleElem = driver.find_element_by_class_name("aoT")
+    titleElem.send_keys("This is title")
+    print("Successfully wrote title")
 
-# Click send button
-time.sleep(1)
-sendElem =driver.find_element_by_id(":sb")
-sendElem.click()
+    # Write content
+    content = driver.find_element_by_id(":md")
+    content.send_keys("This is content")
+    print("Successfully wrote content")
 
-driver.close()
+    # Click send button
+    time.sleep(1)
+    sendElem =driver.find_element_by_id(":sb")
+    sendElem.click()
+
+    driver.close()
+
+if __name__ == "__main__":
+    main()
