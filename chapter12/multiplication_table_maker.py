@@ -4,7 +4,7 @@ from openpyxl.styles import Font
 
 
 def main():
-    
+
     N = int(sys.argv[1])
 
     wb = openpyxl.Workbook()
